@@ -198,7 +198,7 @@ function loadDoc() {
 
                 }           
             };
-            xhttp.open("GET", "/lectures", true);
+            xhttp.open("GET", "./", true);
             xhttp.send();            
             }
 
