@@ -162,7 +162,7 @@ function loadDoc() {
                     a=0;
                     b=0;
 		    var str="";		                    
-                    //console.log(thing);
+                    console.log(thing);
                     // greps file for .html and then backs up leter by letter till you hot the file name and all
                     while ((dothtmls = searchFor.exec(thing)) != null ){
                         str = "";
