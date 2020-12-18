@@ -25,7 +25,7 @@ else {
 }
 
 var broker= "broker.hivemq.com";
-var port=8000;
+var port=1883;
 var topic="j1a2n3a4r5d6a7n8/lecture81/"+code;
 var myname= unescape(params["myname"]);
 var chattopic= "j1a2n3a4r5d6a7n8/chat81/"+code;
