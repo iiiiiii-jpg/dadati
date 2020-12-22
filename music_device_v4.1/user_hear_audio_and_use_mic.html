@@ -124,6 +124,7 @@
     initialize();
 
     async function initialize() {
+      document.getElementById("bt1").innerHTML = bt1;
       // Create own peer object with connection to shared PeerJS server
       peer = new Peer(null, {
         debug: 2
@@ -141,7 +142,6 @@
         console.log('ID: ' + peer.id);
         document.getElementById("abc").innerHTML = "You are connected to Server.";
         document.getElementById("sen").innerHTML = "Now connect to Sender to hear.";
-        document.getElementById("bt1").innerHTML = bt1;
       });
       peer.on('connection', function (c) {
         // Disallow incoming connections
@@ -151,8 +151,8 @@
         });
       });
       peer.on('disconnected', function () {
-        document.getElementById("abc").innerHTML = "Connection lost. Reconnecting..";
-        //console.log('Connection lost. Please reconnect');
+        //document.getElementById("abc").innerHTML = "Connection lost. Reconnecting..";
+       
         // Workaround for peer.reconnect deleting previous id
         peer.id = lastPeerId;
         peer._lastServerId = lastPeerId;
@@ -161,7 +161,7 @@
       peer.on('close', function () {
         call = null;
         document.getElementById("abc").innerHTML =  "<p style='color:red'>"+"Connection destroyed. Please refresh";
-        console.log('Connection destroyed');
+        //console.log('Connection destroyed');
       });
       peer.on('error', function (err) {
         document.getElementById("abc").innerHTML = "<p style='color:red'>" + err;
@@ -197,19 +197,20 @@
           audio.srcObject = remoteStream;
           
           document.getElementById("bt1").innerHTML = bt1_red;
-          //mute_mic();
+          mute_mic();
         });
 
         call.on('close', function () {
           document.getElementById("bt1").innerHTML = bt1;
           document.getElementById("sen").innerHTML = "<p style='color:red'>Call Disconnected ??";
-          if (!peer.disconnected) {join();}
+          //if (!peer.disconnected) {join();}
+          
         });
 
         call.on('error', function (err) {
           document.getElementById("bt1").innerHTML = bt1;
           document.getElementById("sen").innerHTML = "<p style='color:red'>" + err;
-            //alert('' + err);
+            alert('Call ' + err);
         });
       }
 
