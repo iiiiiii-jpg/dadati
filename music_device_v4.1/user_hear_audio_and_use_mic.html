@@ -197,6 +197,7 @@
           audio.srcObject = remoteStream;
           
           document.getElementById("bt1").innerHTML = bt1_red;
+          document.addEventListener('touchstart', enableNoSleep, false);
           mute_mic();
         });
 
@@ -204,6 +205,7 @@
           document.getElementById("bt1").innerHTML = bt1;
           document.getElementById("sen").innerHTML = "<p style='color:red'>Call Disconnected ??";
           //if (!peer.disconnected) {join();}
+          noSleep.disable();
           
         });
 
@@ -230,6 +232,18 @@
     }
 
 
+  </script>
+  <script src="NoSleep.min.js"></script>
+  <script>
+      var noSleep = new NoSleep();
+
+      function enableNoSleep() {
+          noSleep.enable();
+          document.removeEventListener('touchstart', enableNoSleep, false);
+      }
+      // Enable wake lock.
+      // (must be wrapped in a user input event handler e.g. a mouse or touch handler)
+      
   </script>
 </body>
 
