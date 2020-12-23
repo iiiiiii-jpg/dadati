@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Caller</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+    background-color: white;
+  }
+
+  /* Full-width input fields */
+  input[type=text],
+  input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+
+  input[type=text]:focus,
+  input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+
+  /* Overwrite default styles of hr */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+
+  /* Set a style for the submit button */
+  .registerbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 25px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  .registerbtn2 {
+    background-color: #db20a3;
+    color: white;
+    padding: 25px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+
+  .registerbtn:hover {
+    opacity: 1;
+  }
+
+  /* Add a blue text color to links */
+  a {
+    color: dodgerblue;
+  }
+
+  /* Set a grey background color and center the text of the "sign in" section */
+  .signin {
+    background-color: #f1f1f1;
+    text-align: center;
+  }
+</style>
+
+<body>
+
+  <form action="" id="yew">
+    <div class="container">
+      <h3>Hear Lecture only</h3>
+      <p id="abc">Connecting to Server...</p>
+      <p id="sen">Wait...</p>
+      <hr>
+
+      <label for="serverid"><b>Enter the ID of Sender</b></label>
+      <input type="text" name="serverid" placeholder="Sender ID here.." id="serverid" required>
+      <p id="bt1"> </p>
+      <br> <br>
+      <audio id="audio" controls>
+        <source id="audioSource" src="for_audio_only.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <br> <br>
+    </div>
+
+  </form>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/peerjs@1.2.0/dist/peerjs.min.js"></script>
+  <script>
+    var Util = {};
+    Util.base64 = function (mimeType, base64) {
+      return 'data:' + mimeType + ';base64,' + base64;
+    };
+    var video = document.createElement('video');
+    video.setAttribute('loop', '');
+
+    function addSourceToVideo(element, type, dataURI) {
+      var source = document.createElement('source');
+      source.src = dataURI;
+      source.type = 'video/' + type;
+      element.appendChild(source);
+    }
+
+    addSourceToVideo(video, 'webm', Util.base64('video/webm', 'GkXfo0AgQoaBAUL3gQFC8oEEQvOBCEKCQAR3ZWJtQoeBAkKFgQIYU4BnQI0VSalmQCgq17FAAw9CQE2AQAZ3aGFtbXlXQUAGd2hhbW15RIlACECPQAAAAAAAFlSua0AxrkAu14EBY8WBAZyBACK1nEADdW5khkAFVl9WUDglhohAA1ZQOIOBAeBABrCBCLqBCB9DtnVAIueBAKNAHIEAAIAwAQCdASoIAAgAAUAmJaQAA3AA/vz0AAA='));
+    addSourceToVideo(video, 'mp4', Util.base64('video/mp4', 'AAAAHGZ0eXBpc29tAAACAGlzb21pc28ybXA0MQAAAAhmcmVlAAAAG21kYXQAAAGzABAHAAABthADAowdbb9/AAAC6W1vb3YAAABsbXZoZAAAAAB8JbCAfCWwgAAAA+gAAAAAAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAIVdHJhawAAAFx0a2hkAAAAD3wlsIB8JbCAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAIAAAACAAAAAABsW1kaWEAAAAgbWRoZAAAAAB8JbCAfCWwgAAAA+gAAAAAVcQAAAAAAC1oZGxyAAAAAAAAAAB2aWRlAAAAAAAAAAAAAAAAVmlkZW9IYW5kbGVyAAAAAVxtaW5mAAAAFHZtaGQAAAABAAAAAAAAAAAAAAAkZGluZgAAABxkcmVmAAAAAAAAAAEAAAAMdXJsIAAAAAEAAAEcc3RibAAAALhzdHNkAAAAAAAAAAEAAACobXA0dgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAIAAgASAAAAEgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABj//wAAAFJlc2RzAAAAAANEAAEABDwgEQAAAAADDUAAAAAABS0AAAGwAQAAAbWJEwAAAQAAAAEgAMSNiB9FAEQBFGMAAAGyTGF2YzUyLjg3LjQGAQIAAAAYc3R0cwAAAAAAAAABAAAAAQAAAAAAAAAcc3RzYwAAAAAAAAABAAAAAQAAAAEAAAABAAAAFHN0c3oAAAAAAAAAEwAAAAEAAAAUc3RjbwAAAAAAAAABAAAALAAAAGB1ZHRhAAAAWG1ldGEAAAAAAAAAIWhkbHIAAAAAAAAAAG1kaXJhcHBsAAAAAAAAAAAAAAAAK2lsc3QAAAAjqXRvbwAAABtkYXRhAAAAAQAAAABMYXZmNTIuNzguMw=='));
+
+  </script>
+
+  <script type="text/javascript">
+
+    var call = null;
+    var lastPeerId = null;
+    var stream = null;
+    var peer = null; // own peer object
+    var mic_state = ""; var rqst = "";
+    var bt1 = "<button type='button' id= 'bt1' onclick='join();' class='registerbtn'>Connect to Sender</button>";
+    var bt1_red = "<button type='button' id= 'bt1' onclick='call.close();' class='registerbtn2'>Disconnect</button>";
+
+    initialize();
+    //start_stream();
+
+    async function initialize() {
+      document.getElementById("bt1").innerHTML = bt1;
+      // Create own peer object with connection to shared PeerJS server
+      peer = new Peer(null, {
+        debug: 2
+      });
+
+      peer.on('open', function (id) {
+        // Workaround for peer.reconnect deleting previous id
+        if (peer.id === null) {
+          //console.log('Received null id from peer open');
+          peer.id = lastPeerId;
+        } else {
+          lastPeerId = peer.id;
+        }
+
+        console.log('ID: ' + peer.id);
+        document.getElementById("abc").innerHTML = "You are connected to Server.";
+        document.getElementById("sen").innerHTML = "Now connect to Sender to hear.";
+      });
+      peer.on('connection', function (c) {
+        // Disallow incoming connections
+        c.on('open', function () {
+          c.send("Sender does not accept incoming connections");
+          setTimeout(function () { c.close(); }, 500);
+        });
+      });
+      peer.on('disconnected', function () {
+        //document.getElementById("abc").innerHTML = "Connection lost. Reconnecting..";
+
+        // Workaround for peer.reconnect deleting previous id
+        peer.id = lastPeerId;
+        peer._lastServerId = lastPeerId;
+        peer.reconnect();
+      });
+      peer.on('close', function () {
+        call = null;
+        document.getElementById("abc").innerHTML = "<p style='color:red'>" + "Connection destroyed. Please refresh";
+        //console.log('Connection destroyed');
+      });
+      peer.on('error', function (err) {
+        document.getElementById("abc").innerHTML = "<p style='color:red'>" + err;
+        // alert('' + err);
+      });
+    };
+
+    /**
+     * Create the connection between the two Peers.
+     *
+     * Sets up callbacks that handle any events related to the
+     * connection and data received on it.
+     */
+    async function join() {
+      // Close old connection
+      if (call) {
+        call.close();
+      }
+      start_stream();
+      // Create media connection to destination peer specified in the input field
+      var pid = document.getElementById('serverid').value;
+      call = peer.call(pid, stream, { metadata: 'biny' });
+
+      call.on('stream', function (remoteStream) {
+        document.getElementById("sen").innerHTML = "<p style='color:green'>Conneted to Sender Now You can hear";
+        //console.log("Call Connected");
+        const audio = document.getElementById('audio');
+        audio.srcObject = remoteStream;
+        audio.play();
+        document.getElementById("bt1").innerHTML = bt1_red;
+        //to keep screen awake
+        video.play();
+      });
+
+      call.on('close', function () {
+        document.getElementById("bt1").innerHTML = bt1;
+        document.getElementById("sen").innerHTML = "<p style='color:red'>Call Disconnected ??";
+        //if (!peer.disconnected) {join();}
+
+      });
+
+      call.on('error', function (err) {
+        document.getElementById("bt1").innerHTML = bt1;
+        document.getElementById("sen").innerHTML = "<p style='color:red'>" + err;
+        alert('Call ' + err);
+      });
+    }
+
+
+
+    async function start_stream() {
+      //stream = await window.navigator.mediaDevices.getUserMedia({ video: false, audio: true });
+      stream = document.getElementById('audio').captureStream();
+      stream.getAudioTracks()[0].enabled = false;
+
+    }
+
+
+  </script>
+
+</body>
+
+</html>
