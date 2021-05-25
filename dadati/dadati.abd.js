@@ -47,9 +47,7 @@ function handleFiles() {
   stream = curr_track.captureStream();
 
   initialize();
-  document.getElementById("link").innerHTML = "https://iiiiiii-jpg.github.io/music_device/user_hear_audio_only_autoconnect.html?id="+code
-
-  Countcallers();
+ 
  
  // Tutor();
 }
@@ -313,6 +311,9 @@ async function initialize() {
 
         console.log('ID: ' + peer.id);
         document.getElementById("abc").innerHTML = "Connected (Your ID: " + peer.id + ")";
+       document.getElementById("link").innerHTML = "https://iiiiiii-jpg.github.io/music_device/user_hear_audio_only_autoconnect.html?id="+code
+
+        Countcallers();
     });
     peer.on('connection', function (c) {
         // Disallow incoming connections
