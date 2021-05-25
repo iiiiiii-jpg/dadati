@@ -311,7 +311,7 @@ async function initialize() {
 
         console.log('ID: ' + peer.id);
         document.getElementById("abc").innerHTML = "Connected (Your ID: " + peer.id + ")";
-       document.getElementById("link").innerHTML = "https://iiiiiii-jpg.github.io/music_device/user_hear_audio_only_autoconnect.html?id="+code
+       document.getElementById("link").innerHTML = "https://iiiiiii-jpg.github.io/music_device/hear.html?id="+code
 
         Countcallers();
     });
