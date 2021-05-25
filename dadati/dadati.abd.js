@@ -47,7 +47,7 @@ function handleFiles() {
   stream = curr_track.captureStream();
 
   initialize();
-  document.getElementById("link").innerHTML = "http://192.168.43.113:8080/v4.3/music_device/user_hear_audio_only_autoconnect.html?id="+code
+  document.getElementById("link").innerHTML = "https://iiiiiii-jpg.github.io/music_device/user_hear_audio_only_autoconnect.html?id="+code
 
   Countcallers();
  
