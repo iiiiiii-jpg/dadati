@@ -352,8 +352,8 @@ peer.on('call', function (call) {
         //no_of_p = no_of_p + 1;
         //document.getElementById("parti").innerHTML = "Participants: " + no_of_p;
         // Show stream in some video/canvas element.
-        //const audio2 = document.getElementById('audio2');
-        //audio2.srcObject = remoteStream;
+        const audio2 = document.getElementById('audio2');
+        audio2.srcObject = remoteStream;
         callers.push(call);
     });
     call.on('close', function () {
