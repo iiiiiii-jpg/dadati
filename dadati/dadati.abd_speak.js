@@ -313,7 +313,7 @@ async function initialize() {
         console.log('ID: ' + peer.id);
         document.getElementById("abc").innerHTML = "Connected (Your ID: " + peer.id + ")";
         document.getElementById("speak").innerHTML = "<button type='button' onclick='Talk();'>Speak</button>"
-        document.getElementById("link").innerHTML = "https://iiiiiii-jpg.github.io/music_device/hear_speak.html?id="+code+"<br>"+
+        document.getElementById("link").innerHTML = "https://iiiiiii-jpg.github.io/music_device/hear_speak.html?id="+code+"<br><br>"+
         "https://iiiiiii-jpg.github.io/music_device/hear.html?id="+code
 
         Countcallers();
