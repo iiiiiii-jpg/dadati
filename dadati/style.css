@@ -4,7 +4,16 @@ body {
   /* Smoothly transition the background color */
   transition: background-color .5s;
 }
-
+.block {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #3ba574;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
 .player {
   height: 40vh;
   display: flex;
