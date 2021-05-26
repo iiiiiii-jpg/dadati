@@ -417,6 +417,6 @@ function Talk() {
       }
   }
   stream2.getAudioTracks()[0].enabled = true;
-  document.getElementById("speak").innerHTML = "Speaking..."
+  document.getElementById("speak").innerHTML = "<mark style='color:red'> Speaking...</mark>";
 
 }
