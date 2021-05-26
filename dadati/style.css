@@ -1,5 +1,5 @@
 body {
-  background-color: orange;
+  background-color: rgb(207, 147, 87);
 
   /* Smoothly transition the background color */
   transition: background-color .5s;
