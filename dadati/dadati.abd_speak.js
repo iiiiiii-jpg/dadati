@@ -92,7 +92,7 @@ function random_bg_color() {
   //let bgColor = "rgb(" + red + "," + green + "," + blue + ")";
 
   // Set the background to that color
-  document.body.style.background ="rgb(207, 147, 87)";
+  document.body.style.background ="rgb(204, 131, 35)";
 }
 
 function loadTrack(track_index) {
