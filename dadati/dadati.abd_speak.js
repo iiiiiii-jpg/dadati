@@ -139,7 +139,7 @@ function playTrack() {
   //client.send(message);
   curr_track.play();
   stream = curr_track.captureStream();
-  document.getElementById("speak").innerHTML = "<button type='button' onclick='Talk();'>Speak</button>"
+  document.getElementById("speak").innerHTML = "<button type='button' class='block' onclick='Talk();'>Speak</button>"
   isPlaying = true;
   playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
 
