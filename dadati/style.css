@@ -94,7 +94,7 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  width: 15px;
+  width: 45px;
   height: 15px;
   background: white;
   cursor: pointer;
@@ -106,11 +106,11 @@ body {
 }
 
 .seek_slider {
-  width: 60%;
+  width: 70%;
 }
 
 .volume_slider {
-  width: 70%;
+  width: 30%;
 }
 
 .current-time, .total-duration {
