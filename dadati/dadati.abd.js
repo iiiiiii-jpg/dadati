@@ -182,6 +182,22 @@ function seekTo() {
   curr_track.currentTime = seekto;
 
 }
+function 30s_back() {
+  //seekto = curr_track.duration * (seek_slider.value / 100);
+  curr_track.currentTime = curr_track.currentTime + Math.floor(30);
+}
+function 10s_back() {
+  seekto = curr_track.duration * (seek_slider.value / 100);
+  curr_track.currentTime = seekto;
+}
+function 10s_frw() {
+  seekto = curr_track.duration * (seek_slider.value / 100);
+  curr_track.currentTime = seekto;
+}
+function 30s_frw() {
+  seekto = curr_track.duration * (seek_slider.value / 100);
+  curr_track.currentTime = seekto;
+}
 
 function setVolume() {
   curr_track.volume = volume_slider.value / 100;
