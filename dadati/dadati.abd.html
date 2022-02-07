@@ -58,11 +58,9 @@
 
 
     <div class="buttons">
-      <div class="prev-track" onclick="_30s_back()"><i class="fa fa-step-backward fa-2x"></i></div>
-      <div class="prev-track" onclick="_10s_back()"><i class="fa fa-step-backward fa-2x"></i></div>
+      
       <div class="playpause-track" onclick="playpauseTrack()"><i class="fa fa-play-circle fa-5x"></i></div>
-      <div class="next-track" onclick="_10s_frw()"><i class="fa fa-step-forward fa-2x"></i></div>
-      <div class="next-track" onclick="_30s_frw()"><i class="fa fa-step-forward fa-2x"></i></div>
+
     </div>
 
     <div class="slider_container">
@@ -71,11 +69,16 @@
       <div class="total-duration">00:00</div>
     </div>
 
-    <div class="slider_container">
+    <!--<div class="slider_container">
       <i class="fa fa-volume-down"></i>
       <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
       <i class="fa fa-volume-up"></i>
     </div>
+   -->
+     <button type='button' onclick="_30s_back()"/>
+      <button type='button' onclick="_10s_back()"/>
+       <button type='button'onclick="_10s_frw()"/>
+      <button type='button' onclick="_30s_frw()"/>
   </div>
 
   <form action="" id="yew">
