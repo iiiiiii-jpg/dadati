@@ -23,7 +23,6 @@ peer.on('open', function (id) {
         console.log('ID: ' + peer.id);
         document.getElementById("abc").innerHTML = "Connected (Your ID: " + peer.id + ")";
 
-        Countcallers();
     });
     peer.on('connection', function (c) {
         // Disallow incoming connections
