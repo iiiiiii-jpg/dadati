@@ -312,9 +312,6 @@ var for_screen = 1;
 async function initialize() {
     // Create own peer object with connection to shared PeerJS server
     peer = new Peer(code, {
-      host: 'peers-peerjsserver-w9rb7jrnja1.ws-us32.gitpod.io',
-      port: 9000,
-      path: '/',
       debug: 2
     });
 
