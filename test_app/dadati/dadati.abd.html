@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Controller</title>
+  <!-- Load FontAwesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+  <!-- Load the custom CSS style file -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+  <style>
+    .vertical-menu {
+      width: 360px;
+      height: 150px;
+      overflow-y: auto;
+    }
+    
+    .vertical-menu a {
+      background-color: #eee;
+      color: black;
+      display: block;
+      padding: 12px;
+      text-decoration: none;
+    }
+    
+    .vertical-menu a:hover {
+      background-color: #ccc;
+    }
+    
+    .vertical-menu a.active {
+      background-color: #4CAF50;
+      color: white;
+    }
+    </style>
+
+</head>
+<body>
+  
+  <div class="vertical-menu" id="lec_menu"></div>
+
+  <input type="file" id="files" multiple>
+  <br>
+
+  <div class="player">
+    <div class="details">
+      <div class="now-playing">PLAYING x OF y</div>
+      <br></br>
+      <div class="track-name">Track Name</div>
+      <div class="track-artist">Track Artist</div>
+    </div>
+
+    <div class="buttons">
+      <div class="prev-track" onclick="prevTrack()"><i class="fa fa-step-backward fa-2x"></i></div>
+      <div class="playpause-track" onclick="playpauseTrack()"><i class="fa fa-play-circle fa-5x"></i></div>
+      <div class="next-track" onclick="nextTrack()"><i class="fa fa-step-forward fa-2x"></i></div>
+    </div>
+
+    <div class="slider_container">
+      <div class="current-time">00:00</div>
+      <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+      <div class="total-duration">00:00</div>
+    </div>
+
+    <!--<div class="slider_container">
+      <i class="fa fa-volume-down"></i>
+      <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
+      <i class="fa fa-volume-up"></i>
+    </div>
+   -->
+  <table>
+  <tr>
+    <td><button type='button' onclick="_30s_back()"><<30s</button></td>
+    <td><button type='button' onclick="_10s_back()"><<10s</button></td>
+    <td>      </td><td>     </td><td>     </td><td>      </td><td>     </td><td>     </td>
+    <td>      </td><td>     </td><td>     </td>
+    <td><button type='button'onclick="_10s_frw()">10s>></button></td>
+    <td><button type='button' onclick="_30s_frw()">30s>></button></td>
+  </tr>
+  <table>
+  </div>
+
+  <form action="" id="yew">
+    <div class="container">
+        <h3>Group Hearing Sharing Service </h3>
+        <p id="abc">Connecting to Server....</p>
+        <p id="parti">Participants: No one </p>
+        <p id="link">waiting... </p>
+
+        <hr>
+    </div>
+</form>
+
+<!--<script src="https://cdn.jsdelivr.net/npm/peerjs@1.2.0/dist/peerjs.min.js"></script>-->
+<script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+
+  <!-- Load the main script for the player -->
+  <script src="dadati.abd.js"></script>
+
+
+</body>
+</html>
