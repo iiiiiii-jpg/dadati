@@ -222,7 +222,9 @@ function seekUpdate() {
     total_duration.textContent = durationMinutes + ":" + durationSeconds;
   }
 }
-
+const nn = localStorage.getItem('name');
+console.log(nn);
+localStorage.setItem('name', 'John Doe');
 //************************************************************
 
 function loadDoc() {
