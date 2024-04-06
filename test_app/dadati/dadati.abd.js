@@ -1,4 +1,5 @@
-
+var last_play_time = localStorage.getItem('last_play_time');
+console.log(last_play_time);
 var stream = null;
 var lectures = new Array();
 var code = ''
@@ -120,6 +121,7 @@ function playSelected(my_index) {
   // for streaming only
     //stream = curr_track.captureStream();
     ///
+  curr_track.currentTime = curr_track.currentTime - Math.floor(10);
   playTrack();
  
   track_index = my_index;
@@ -222,9 +224,8 @@ function seekUpdate() {
     total_duration.textContent = durationMinutes + ":" + durationSeconds;
   }
 }
-const nn = localStorage.getItem('name');
-console.log(nn);
-localStorage.setItem('name', 'John Doe');
+
+localStorage.setItem('last_play_time', curr_track.currentTime );
 //************************************************************
 
 function loadDoc() {
