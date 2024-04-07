@@ -1,5 +1,5 @@
 var last_play_time = localStorage.getItem('last_play_time');
-//console.log(last_play_time);
+console.log(last_play_time);
 var intervalId = null;
 var stream = null;
 var lectures = new Array();
