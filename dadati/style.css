@@ -15,7 +15,7 @@ body {
   text-align: center;
 }
 .player {
-  height: 40vh;
+  /*height: 40vh;*/
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -27,7 +27,7 @@ body {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  margin-top: 180px;
+  margin-top: 25px;
 }
 
 .track-art {
