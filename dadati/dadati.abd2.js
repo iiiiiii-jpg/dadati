@@ -17,7 +17,7 @@ function getParams(){
   return params;
 }
 params = getParams();
-code = unescape(params["id"]);
+code = unescape(params["id"].split('#')[0]);
 //console.log(code);
 //****use this for App (keep lectures in lectures folder)*/
 //loadDoc();
