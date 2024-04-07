@@ -1,5 +1,3 @@
-var last_play_time = localStorage.getItem('last_play_time');
-console.log(last_play_time);
 var intervalId = null;
 var stream = null;
 var lectures = new Array();
@@ -121,9 +119,10 @@ function playSelected(my_index) {
   loadTrack(my_index);
   // for streaming only
     //stream = curr_track.captureStream();
-    ///
-  if (last_play_time!=null)
-  curr_track.currentTime = last_play_time;//Math.floor(10);
+  var play_time = localStorage.getItem(track_list[my_index].name.substring(0, 20));
+  console.log(track_list[my_index].name.substring(0, 20));
+  if (play_time!=null)
+  curr_track.currentTime = play_time;//Math.floor(10);
   playTrack();
    
   track_index = my_index;
@@ -248,7 +247,7 @@ function seekUpdate() {
 
 function save_last_play_time() {
   //console.log("Hello, world!");
-  localStorage.setItem('last_play_time', curr_track.currentTime );
+  localStorage.setItem(track_list[track_index].name.substring(0, 20), curr_track.currentTime );
 }
 
 
