@@ -154,7 +154,7 @@
     var call = null;
     var intervalId = null;
     var waiting = 0;
-    var flip = 1;
+    var flip = true;
     var lastPeerId = null;
     var stream = null;
     var peer = null; // own peer object
@@ -209,12 +209,13 @@
         document.getElementById("sen").innerHTML = "<p style='color:red'>" + err;
         console.log(err.type);
         if (err.type=='peer-unavailable'){
-          if(flip==1){
-          document.getElementById("sen").innerHTML = "<p style='color:red'>" + "Source: Unavailable. Rechecking in every 5s" ; flip = 0;}
-           if(flip==0){
-          document.getElementById("sen").innerHTML = "<p style='color:red'>" + "Source: Unavailable. Rechecking again..." ;flip = 1;}
-            if (waiting==0){
-              intervalId = setInterval(join, 5000); waiting = 1;}
+          if(flip)
+            document.getElementById("sen").innerHTML = "<p style='color:red'>" + "Source: Unavailable. Rechecking in every 5s" ;
+          if(flip)
+            document.getElementById("sen").innerHTML = "<p style='color:red'>" + "Source: Unavailable. Rechecking again..." ;
+          flip = !flip;
+          if (waiting==0){
+            intervalId = setInterval(join, 5000); waiting = 1;}
         }
       });
     };
