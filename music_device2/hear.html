@@ -206,8 +206,11 @@
         //console.log('Connection destroyed');
       });
       peer.on('error', function (err) {
-        //document.getElementById("abc").innerHTML = "<p style='color:red'>" + err;
+        document.getElementById("sen").innerHTML = "<p style='color:red'>" + err;
         console.log(err.type);
+        if (err.type=='peer-unavailable'){
+          document.getElementById("sen").innerHTML = "<p style='color:red'>" + "Source is unavailable";
+        }
       });
     };
 
