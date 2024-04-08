@@ -209,9 +209,9 @@
         document.getElementById("sen").innerHTML = "<p style='color:red'>" + err;
         console.log(err.type);
         if (err.type=='peer-unavailable'){
-          if(flip){
+          if(flip==1){
           document.getElementById("sen").innerHTML = "<p style='color:red'>" + "Source: Unavailable. Rechecking in every 5s" ; flip = 0;}
-           if(!flip){
+           if(flip==0){
           document.getElementById("sen").innerHTML = "<p style='color:red'>" + "Source: Unavailable. Rechecking again..." ;flip = 1;}
             if (waiting==0){
               intervalId = setInterval(join, 5000); waiting = 1;}
