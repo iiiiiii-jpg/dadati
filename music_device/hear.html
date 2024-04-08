@@ -161,7 +161,10 @@
     var mic_state = ""; var rqst = "";
     var bt1 = "<button type='button' id= 'bt1' onclick='join();' class='registerbtn'>Click to Connect</button>";
     var bt1_red = "<button type='button' id= 'bt1' onclick='call.close();' class='registerbtn2'>Click to Disconnect</button>";
-
+    
+    window.onbeforeunload = function(){
+      call.close();
+  }
     initialize();
     //start_stream();
 
