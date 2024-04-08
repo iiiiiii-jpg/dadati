@@ -182,8 +182,8 @@
         }
 
         console.log('ID: ' + peer.id);
-        document.getElementById("abc").innerHTML = "You are connected to Server.";
-        document.getElementById("sen").innerHTML = "Now connect to Sender to hear.";
+        document.getElementById("abc").innerHTML = "Server: Connected.";
+        document.getElementById("sen").innerHTML = "Now connect with Source";
       });
       peer.on('connection', function (c) {
         // Disallow incoming connections
@@ -193,7 +193,7 @@
         });
       });
       peer.on('disconnected', function () {
-        //document.getElementById("abc").innerHTML = "Connection lost. Reconnecting..";
+        document.getElementById("abc").innerHTML = "Server: Reconnecting..";
 
         // Workaround for peer.reconnect deleting previous id
         peer.id = lastPeerId;
@@ -228,10 +228,9 @@
       //var pid = document.getElementById('serverid').value;
       var pid = code
       call = peer.call(pid, stream, { metadata: 'biny' });
-      console.log(call.open);
 
       call.on('stream', function (remoteStream) {
-        document.getElementById("sen").innerHTML = "<p style='color:green'>Conneted to Sender Now You can hear";
+        document.getElementById("sen").innerHTML = "<p style='color:green'>With Source: Connected";
         //console.log("Call Connected");
         const audio = document.getElementById('audio');
         audio.srcObject = remoteStream;
@@ -243,7 +242,7 @@
 
       call.on('close', function () {
         document.getElementById("bt1").innerHTML = bt1;
-        document.getElementById("sen").innerHTML = "<p style='color:red'>Call Disconnected ??";
+        document.getElementById("sen").innerHTML = "<p style='color:red'>With Source: Disconnected ??";
         //if (!peer.disconnected) {join();}
 
       });
