@@ -359,7 +359,8 @@ async function initialize() {
         document.getElementById("abc").innerHTML = "Connected (Your ID: " + peer.id + ")";
        document.getElementById("link").innerHTML = "https://iiiiiii-jpg.github.io/music_device/hear.html?id="+code
 
-        Countcallers();
+        //Countcallers();
+      var count_parti = setInterval(Countcallers, 3000);
     });
     peer.on('connection', function (c) {
         // Disallow incoming connections
@@ -432,10 +433,9 @@ function lec_playing() {
     }
 };
 
-function sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
-async function Countcallers() {
-    //document.write('Hello Toturix');      
-    while (1) {
+/*function sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }*/
+
+function Countcallers() {
         no_of_p = 0;
         for (i = 0; i < callers.length; i++) {
             if (callers[i].open) {
@@ -444,8 +444,6 @@ async function Countcallers() {
         }
         if (!peer.disconnected) { document.getElementById("abc").innerHTML = "Connected (Your ID: " + peer.id + ")"; }
         document.getElementById("parti").innerHTML = "Participants: " + no_of_p;
-        await sleep(5000);
-    }
 }
 
 
