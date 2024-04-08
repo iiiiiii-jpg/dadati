@@ -153,6 +153,7 @@
 
     var call = null;
     var intervalId = null;
+    var waiting = 0;
     var lastPeerId = null;
     var stream = null;
     var peer = null; // own peer object
@@ -208,7 +209,8 @@
         console.log(err.type);
         if (err.type=='peer-unavailable'){
           document.getElementById("sen").innerHTML = "<p style='color:red'>" + "Source: Unavailable. Rechecking in 5s" ;
-            intervalId = setInterval(join, 5000);
+            if (waiting==0){
+              intervalId = setInterval(join, 5000); waiting = 1;}
         }
       });
     };
@@ -234,7 +236,7 @@
       call.on('stream', function (remoteStream) {
         document.getElementById("sen").innerHTML = "<p style='color:green'>With Source: Connected";
         //console.log("Call Connected");
-        clearInterval(intervalId);
+        clearInterval(intervalId); waiting = 0;
         const audio = document.getElementById('audio');
         audio.srcObject = remoteStream;
         audio.play();
