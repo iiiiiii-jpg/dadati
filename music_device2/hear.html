@@ -202,12 +202,12 @@
       });
       peer.on('close', function () {
         call = null;
-        document.getElementById("abc").innerHTML = "<p style='color:red'>" + "Connection destroyed. Please refresh";
+        document.getElementById("abc").innerHTML = "<p style='color:red'>" + "Server: Connection destroyed.";
         //console.log('Connection destroyed');
       });
       peer.on('error', function (err) {
-        document.getElementById("abc").innerHTML = "<p style='color:red'>" + err;
-        // alert('' + err);
+        //document.getElementById("abc").innerHTML = "<p style='color:red'>" + err;
+        console.log(err.type);
       });
     };
 
