@@ -207,7 +207,7 @@
       });
       peer.on('error', function (err) {
         document.getElementById("sen").innerHTML = "<p style='color:red'>" + err;
-        console.log(err.type);
+        console.log(flip);
         if (err.type=='peer-unavailable'){
           if(flip)
             document.getElementById("sen").innerHTML = "<p style='color:red'>" + "Source: Unavailable. Rechecking in every 5s" ;
