@@ -160,9 +160,7 @@ function pauseTrack() {
   isPlaying = false;
   playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
 
-  setTimeout(() => {
   clearInterval(intervalId);
-}, 10000);
 }
 
 function nextTrack() {
