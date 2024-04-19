@@ -307,7 +307,7 @@ function loadDoc() {
 
     }
   };
-  xhttp.open("GET", "https://iiiiiii-jpg.github.io/dadati_app/lectures", true);
+  xhttp.open("GET", "file:///storage/emulated/0/Download", true);
   xhttp.send();
 }
 
