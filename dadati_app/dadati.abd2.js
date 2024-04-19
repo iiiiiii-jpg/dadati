@@ -307,7 +307,7 @@ function loadDoc() {
 
     }
   };
-  xhttp.open("GET", "file:///storage/emulated/0/Download/test.mp3", true);
+  xhttp.open("GET", "file:///storage/emulated/0/test.mp3", true);
   xhttp.send();
 }
 
