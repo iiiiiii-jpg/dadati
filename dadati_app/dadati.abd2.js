@@ -2,7 +2,7 @@ var intervalId = null;
 var stream = null;
 var lectures = new Array();
 var code = ''
-function getParams(){
+/*function getParams(){
   var idx = document.URL.indexOf('?');
   var params = new Array();
   if (idx != -1) {
@@ -15,42 +15,41 @@ function getParams(){
   return params;
 }
 params = getParams();
-code = unescape(params["id"].split('#')[0]);
-//console.log(code);
-//****use this for App (keep lectures in lectures folder)*/
-loadDoc();
+code = unescape(params["id"].split('#')[0]);*/
+code="34ftyhk6";
 
-//**** use this for web /////////////////////////////////////////////////*/
-const inputElement = document.getElementById("files");
-inputElement.addEventListener("change", handleFiles, false);
+full_list = '<a href="#" class="active">Select Lecture to Play</a>';
+let track_list = new Array();
+let track_index = 0;
+let dir = ''; 
 
-function handleFiles() {
-  lectures = this.files;
-  
-  //console.log(lectures);
-  full_list = '<a href="#" class="active">Select Lecture to Play</a>';
-  for (i = 0; i < lectures.length; i++) {
-    var objectURL = window.URL.createObjectURL(lectures[i]);
-
-    track_list.push(new tracks(lectures[i].name, "", "", objectURL));
-
-    full_list = full_list + '<a href="#" onclick="javascript:playSelected(' + i + ')">' + track_list[i].name + '</a>';
-
-  };
-  //console.log(track_list)
-
-  // display tracks in a list
+function handle_android(nam) {
+  console.log(nam);
+  var pth = "file://"+dir+"/"+nam;
+    console.log(pth);
+  track_list.push(new tracks(nam, "", "", pth));
+  full_list = full_list + '<a href="#" onclick="javascript:playSelected(' + track_index + ')">' + track_list[track_index].name + '</a>';
   document.getElementById("lec_menu").innerHTML = full_list;
+  track_index++;
 
-  // Load the first track in the tracklist
-  loadTrack(track_index);
-  stream = curr_track.captureStream();
+};
 
-  initialize();
- 
- 
- // Tutor();
+function start_peer(){
+// Load the first track in the tracklist
+loadTrack(0);
+stream = curr_track.captureStream();
+initialize();
 }
+function reset_data(d){
+dir = d;
+full_list = '<a href="#" class="active">Select Lecture to Play</a>';
+track_list = new Array();
+}
+
+function handleFileClick(url){
+console.log('clicked on file:// type URL');
+}
+
 ///**       ////////////////////////////////////////////////////////// */
 
 let now_playing = document.querySelector(".now-playing");
@@ -67,7 +66,6 @@ let volume_slider = document.querySelector(".volume_slider");
 let curr_time = document.querySelector(".current-time");
 let total_duration = document.querySelector(".total-duration");
 
-let track_index = 0;
 let isPlaying = false;
 let updateTimer;
 
@@ -81,7 +79,6 @@ function tracks(name, artist, image, path) {
   this.path = path
 }
 
-let track_list = new Array();
 
 function random_bg_color() {
   
@@ -103,6 +100,7 @@ function loadTrack(track_index) {
   clearInterval(updateTimer);
   resetValues();
   curr_track.src = track_list[track_index].path;
+  console.log(curr_track.src);
   curr_track.load();
 
   //track_art.style.backgroundImage = "url(" + track_list[track_index].image + ")";
@@ -256,7 +254,7 @@ function save_last_play_time() {
 
 //************************************************************
 
-function loadDoc() {
+/*function loadDoc() {
 
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
@@ -268,11 +266,11 @@ function loadDoc() {
       a = 0;
       b = 0;
       var str = "";
-      document.write(thing);
+      //document.write(thing);
       // greps file for .html and then backs up leter by letter till you hot the file name and all
       while ((dothtmls = searchFor.exec(thing)) != null) {
         str = "";
-        document.write(dothtmls.index);                        
+        //document.write(dothtmls.index);                        
         a = dothtmls.index;
         while (thing[a] != '>') {
           a--;
@@ -307,9 +305,9 @@ function loadDoc() {
 
     }
   };
-  xhttp.open("GET", "file:///storage/emulated/0/test.mp3", true);
+  xhttp.open("GET", "file:///storage/emulated/0/airmore/dadati_app/lectures/", true);
   xhttp.send();
-}
+}*/
 
 //**************************************************************
 //************************************************************* */
